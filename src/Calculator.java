@@ -1,16 +1,33 @@
+import java.awt.Color;
+
 import javax.swing.*;
 import javax.swing.JFrame;
+import javax.swing.border.EmptyBorder;
 
 public class Calculator {
+	
+	static JLabel text_feild;
 	
 	public Calculator() {
 		// TODO Auto-generated constructor stub
 	}
 	public static void main(String[] args) {
+		
 		JFrame frame = new JFrame();
 		frame.setSize(540, 600);
+		frame.setLocation(500,100);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setLayout(null);
 		frame.setVisible(true);
+		
+		text_feild = new JLabel("0");
+		text_feild.setBounds(50, 70, 430, 50);
+		text_feild.setForeground(Color.white);
+		text_feild.setBackground(Color.gray);
+		text_feild.setBorder(new EmptyBorder(0, 10, 0, 10));
+		text_feild.setOpaque(true);
+		frame.add(text_feild);
+		text_feild.setVisible(true);
 		
 		JButton button7 = new JButton("7");
 		button7.setBounds(50, 150, 70, 70);
