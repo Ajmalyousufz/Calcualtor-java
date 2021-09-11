@@ -9,6 +9,10 @@ import javax.swing.border.EmptyBorder;
 public class Calculator {
 	
 	static JLabel text_feild;
+	static Boolean numberKeysClicked = false;
+	static Boolean equaltokeyclicked = false;
+	static String oldNum ;
+	static String operand;
 	
 	public Calculator() {
 		// TODO Auto-generated constructor stub
@@ -31,140 +35,35 @@ public class Calculator {
 		frame.add(text_feild);
 		text_feild.setVisible(true);
 		
+		
+		
 		JButton button7 = new JButton("7");
-		button7.setBounds(50, 150, 70, 70);
-		button7.setVisible(true);
-		frame.add(button7);
-		button7.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
-				text_feild.setText(button7.getText());
-				
-			}
-			
-		});
+		button(button7,50, 150, 70, 70,frame);
 		
 		JButton button8 = new JButton("8");
-		button8.setBounds(140, 150, 70, 70);
-		button8.setVisible(true);
-		frame.add(button8);
-		button8.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
-				text_feild.setText(button8.getText());
-				
-			}
-			
-		});
+		button(button8,140, 150, 70, 70,frame);
 		
 		JButton button9 = new JButton("9");
-		button9.setBounds(230, 150, 70, 70);
-		button9.setVisible(true);
-		frame.add(button9);
-		button9.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
-				text_feild.setText(button9.getText());
-				
-			}
-			
-		});
+		button(button9,230, 150, 70, 70,frame);
 		
 		JButton button4 = new JButton("4");
-		button4.setBounds(50, 240, 70, 70);
-		button4.setVisible(true);
-		frame.add(button4);
-		button4.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
-				text_feild.setText(button4.getText());
-				
-			}
-			
-		});
+		button(button4,50, 240, 70, 70,frame);
 		
 		JButton button5 = new JButton("5");
-		button5.setBounds(140, 240, 70, 70);
-		button5.setVisible(true);
-		frame.add(button5);
-		button5.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
-				text_feild.setText(button5.getText());
-				
-			}
-			
-		});
+		button(button5,140, 240, 70, 70,frame);
 		
 		JButton button6 = new JButton("6");
-		button6.setBounds(230, 240, 70, 70);
-		button6.setVisible(true);
-		frame.add(button6);
-		button6.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
-				text_feild.setText(button6.getText());
-				
-			}
-			
-		});
+		button(button6,230, 240, 70, 70,frame);
 		
 		JButton button1 = new JButton("1");
-		button1.setBounds(50, 330, 70, 70);
-		button1.setVisible(true);
-		frame.add(button1);
-		button1.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
-				text_feild.setText(button1.getText());
-				
-			}
-			
-		});
+		button(button1,50, 330, 70, 70,frame);
 		
 		JButton button2 = new JButton("2");
-		button2.setBounds(140, 330, 70, 70);
-		button2.setVisible(true);
-		frame.add(button2);
-		button2.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
-				text_feild.setText(button2.getText());
-				
-			}
-			
-		});
+		button(button2,140, 330, 70, 70,frame);
+		
 		
 		JButton button3 = new JButton("3");
-		button3.setBounds(230, 330, 70, 70);
-		button3.setVisible(true);
-		frame.add(button3);
-		button3.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
-				text_feild.setText(button3.getText());
-				
-			}
-			
-		});
+		button(button3,230, 330, 70, 70,frame);
 		
 		JButton clear = new JButton("C");
 		clear.setBounds(50, 420, 70, 70);
@@ -176,6 +75,7 @@ public class Calculator {
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 				text_feild.setText("0");
+				numberKeysClicked=false;
 				
 			}
 			
@@ -183,33 +83,14 @@ public class Calculator {
 		
 		
 		JButton button0 = new JButton("0");
-		button(button0,140,420,70,70,frame);
-		button0.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
-				text_feild.setText(button0.getText());
-				
-			}
-			
-		});
+		zerodotbutton(button0,140,420,70,70,frame);
+		
 		
 		JButton buttonequal = new JButton("=");
-		button(buttonequal,230,420,70,70,frame);
-		buttonequal.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
-				//text_feild.setText(button7.getText());
-				
-			}
-			
-		});
+		eqbutton(buttonequal,230,420,70,70,frame);
 		
 		JButton plusbutton = new JButton("+");
-		button(plusbutton,320,150,70,70,frame);
+		opbutton(plusbutton,320,150,70,70,frame);
 		plusbutton.addActionListener(new ActionListener() {
 
 			@Override
@@ -222,7 +103,7 @@ public class Calculator {
 		});
 		
 		JButton minusbutton = new JButton("-");
-		button(minusbutton,320,240,70,70,frame);
+		opbutton(minusbutton,320,240,70,70,frame);
 		minusbutton.addActionListener(new ActionListener() {
 
 			@Override
@@ -235,7 +116,7 @@ public class Calculator {
 		});
 		
 		JButton multbutton = new JButton("*");
-		button(multbutton,320,330,70,70,frame);
+		opbutton(multbutton,320,330,70,70,frame);
 		multbutton.addActionListener(new ActionListener() {
 
 			@Override
@@ -248,7 +129,7 @@ public class Calculator {
 		});
 		
 		JButton divbutton = new JButton("/");
-		button(divbutton,320,420,70,70,frame);
+		opbutton(divbutton,320,420,70,70,frame);
 		divbutton.addActionListener(new ActionListener() {
 
 			@Override
@@ -261,17 +142,11 @@ public class Calculator {
 		});
 		
 		JButton backspace = new JButton("<-");
-		button(backspace,410,150,70,70,frame);
-		backspace.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
-				//text_feild.setText(button7.getText());
-				
-			}
-			
-		});
+		bsbutton(backspace,410,150,70,70,frame);
+		
+		JButton dotbutton = new JButton(".");
+		zerodotbutton(dotbutton,410,240,70,70,frame);
+		
 	}
 	
 	public static void button(JButton jb,int x,int y,int w,int h,JFrame frame) {
@@ -279,7 +154,182 @@ public class Calculator {
 		jb.setBounds(x,y,w,h);
 		jb.setVisible(true);
 		frame.add(jb);
+		jb.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				
+				
+				if(numberKeysClicked) {
+					text_feild.setText(text_feild.getText() + jb.getText());
+				}
+				else {
+					text_feild.setText(jb.getText());
+					
+				}
+				
+				numberKeysClicked = true;
+				
+			}
+			
+		});
 			
 	}
+	
+public static void opbutton(JButton jb,int x,int y,int w,int h,JFrame frame) {
+		
+		jb.setBounds(x,y,w,h);
+		jb.setVisible(true);
+		frame.add(jb);
+		jb.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				
+				if(equaltokeyclicked && text_feild.getText().isEmpty()==false) {
+					numberKeysClicked=true;
+					
+				}
+				
+				if(numberKeysClicked) {
+					
+					oldNum=text_feild.getText();
+					//text_feild.setText("0");
+					if(jb.getText()=="+") {
+						operand = "+";
+					}
+					else if (jb.getText()=="-") {
+						operand = "-";
+					}
+					else if (jb.getText()=="*") {
+						operand = "*";
+					}
+					else if (jb.getText()=="/") {
+						operand = "/";
+					}
+					
+					numberKeysClicked=false;
+					
+				}
+				else {
+					text_feild.setText("0");
+				}
+				
+			}
+			
+		});
+				
+}
+
+public static void bsbutton(JButton jb,int x,int y,int w,int h,JFrame frame) {
+	
+	jb.setBounds(x,y,w,h);
+	jb.setVisible(true);
+	frame.add(jb);
+	jb.addActionListener(new ActionListener() {
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			// TODO Auto-generated method stub
+			
+			
+			String text = text_feild.getText();
+			try{
+			    if(!text.isEmpty()){
+			        text_feild.setText(text.substring(0, text.length()-1));
+			    }
+			}catch(NullPointerException e1){
+			    text_feild.setText("");
+			}
+			
+		}
+		
+	});
+	
+}
+
+public static void eqbutton(JButton jb,int x,int y,int w,int h,JFrame frame) {
+	
+	jb.setBounds(x,y,w,h);
+	jb.setVisible(true);
+	frame.add(jb);
+	jb.addActionListener(new ActionListener() {
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			// TODO Auto-generated method stub
+			float newnumber;
+			float oldnumber;
+		    float total;
+		
+	            newnumber = Float.parseFloat(text_feild.getText());
+	            oldnumber = Float.parseFloat(oldNum);
+	        
+			if(operand=="+") {
+				
+				total = newnumber+oldnumber;
+				String s=Float.toString(total);
+				text_feild.setText(s);
+				
+			}
+			else if (operand=="-") {
+				total = oldnumber-newnumber;
+				String s=Float.toString(total);
+				text_feild.setText(s);
+				
+			}
+            else if (operand=="*") {
+            	total = newnumber*oldnumber;
+            	String s=Float.toString(total);
+				text_feild.setText(s);
+				
+			}
+            else if (operand=="/") {
+            	
+            	total = oldnumber/newnumber;
+            	String s=Float.toString(total);
+				text_feild.setText(s);
+				
+			}
+			numberKeysClicked=false;
+			equaltokeyclicked=true;
+		}
+		
+	});
+
+	
+}
+
+public static void zerodotbutton(JButton jb,int x,int y,int w,int h,JFrame frame) {
+	
+	jb.setBounds(x,y,w,h);
+	jb.setVisible(true);
+	frame.add(jb);
+	jb.addActionListener(new ActionListener() {
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			// TODO Auto-generated method stub
+			
+			
+			if(numberKeysClicked) {
+				text_feild.setText(text_feild.getText() + jb.getText());
+			}
+			else {
+				text_feild.setText(jb.getText());
+				
+			}
+			
+			//numberKeysClicked = true;
+			
+		}
+		
+	});
+		
+}
+
+
 
 }
